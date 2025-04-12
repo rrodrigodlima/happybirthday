@@ -38,31 +38,39 @@
             border-left: 3px solid #b30059;
         }
 
-.gallery {
-  position: relative;
-  width: 100%;
-  max-height: 80vh;
-  aspect-ratio: 4 / 3;
-  margin: 2rem auto;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+        .gallery {
+            position: relative;
+            width: 100%;
+            max-height: 80vh;
+            aspect-ratio: 4 / 3;
+            margin: 2rem auto;
+            overflow: hidden;
+            border-radius: 12px;
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+        }
 
-.gallery img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  background-color: #fff0f5;
-}
-
+        /* Envolve cada imagem com moldura estilo polaroid */
+        .gallery img {
+            position: absolute;
+            inset: 0;
+            width: auto;
+            max-width: 90%;
+            max-height: 80%;
+            margin: auto;
+            display: block;
+            padding: 1rem;
+            background: white;
+            border: 8px solid white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: rotate(-2deg);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            border-bottom: 30px solid white;
+        }
 
         .gallery img.active {
             opacity: 1;
+            z-index: 1;
         }
 
         .final-message {
@@ -213,6 +221,71 @@
         .shooting-star {
             animation: shoot 1s linear forwards;
         }
+
+        .love-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            background-color: #ff4da6;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            z-index: 200;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .love-button:hover {
+            background-color: #e60073;
+            transform: scale(1.05);
+        }
+
+
+        .heart-float {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(45deg);
+            opacity: 0.7;
+            z-index: 150;
+            animation: floatUp 2s ease-in forwards;
+        }
+
+        .heart-float::before,
+        .heart-float::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart-float::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart-float::after {
+            top: 0;
+            left: -10px;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translateY(-300px) rotate(45deg);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 
@@ -252,7 +325,7 @@
         <h2>🌟 Nossa História</h2>
         <div class="moment">
             <strong>Anipolitan:</strong> Nosso primeiro encontro foi lá, em meio a olhares e cosplays. Foi onde
-            tudo começou. 
+            tudo começou.
         </div>
         <div class="moment">
             <strong>Stella Maris:</strong> Depois daquele dia incrível, nos encontramos pessoalmente em um outro local.
@@ -273,6 +346,7 @@
         <h2>📸 Nossas Memórias</h2>
         <div class="gallery"></div>
 
+
         <div class="final-message">
             <p>Lumi,</p>
             <p>Desde aquele primeiro encontro no Anipolitan, passando por Stella Maris, até nosso reencontro em 27 de
@@ -285,6 +359,8 @@
             <p>Com todo o meu amor,</p>
             <p>Seu amor ❤️</p>
         </div>
+        <button class="love-button" onclick="explodirCoracoes()">💘</button>
+
 
         <div class="countup">Dias juntos desde 27/11/2024: <span id="dias-juntos"></span></div>
 
@@ -294,6 +370,20 @@
     </div>
 
     <script>
+        function explodirCoracoes() {
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-float');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 2000);
+            }
+        }
+
         for (let i = 0; i < 30; i++) {
             let heart = document.createElement('div');
             heart.className = 'heart';
@@ -366,6 +456,35 @@
 
         setInterval(createShootingStar, 4000);
     </script>
+    <script>
+  document.addEventListener('mousemove', function(e) {
+    const sparkle = document.createElement('div');
+    sparkle.style.position = 'fixed';
+    sparkle.style.left = `${e.clientX}px`;
+    sparkle.style.top = `${e.clientY}px`;
+    sparkle.style.width = '6px';
+    sparkle.style.height = '6px';
+    sparkle.style.borderRadius = '50%';
+    sparkle.style.background = 'rgba(255, 255, 255, 0.8)';
+    sparkle.style.boxShadow = '0 0 8px rgba(255,255,255,0.8)';
+    sparkle.style.pointerEvents = 'none';
+    sparkle.style.zIndex = 999;
+    sparkle.style.animation = 'sparkleFade 0.6s ease-out forwards';
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 600);
+  });
+
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes sparkleFade {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+
 
 
 
