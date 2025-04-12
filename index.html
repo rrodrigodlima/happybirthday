@@ -1,222 +1,282 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Para Lumi 💖</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Georgia', serif;
-      background: radial-gradient(#fff0f5, #ffe6f0);
-      color: #3d3d3d;
-      line-height: 1.6;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem;
-      position: relative;
-      z-index: 1;
-      animation: fadeIn 2s ease-in;
-    }
-    h1, h2 {
-      text-align: center;
-      color: #b30059;
-    }
-    .moment {
-      margin: 1.5rem 0;
-      padding-left: 1rem;
-      border-left: 3px solid #b30059;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-    .gallery img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-    .final-message {
-      margin-top: 3rem;
-      padding: 1.5rem;
-      background-color: #ffe6f0;
-      border-radius: 10px;
-      font-style: italic;
-    }
-    footer {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #888;
-    }
-    a.button {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.8rem 1.2rem;
-      background-color: #b30059;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-    a.button:hover {
-      background-color: #8c0044;
-    }
-    .heart {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-color: red;
-      transform: rotate(45deg);
-      animation: float 6s infinite ease-in;
-      opacity: 0.6;
-    }
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-color: red;
-      border-radius: 50%;
-    }
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-    .heart::after {
-      top: 0;
-      left: -10px;
-    }
-    @keyframes float {
-      0% { transform: translateY(0) rotate(45deg); opacity: 0.6; }
-      100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .typewriter {
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 2px solid #b30059;
-      animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-    }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: #b30059; }
-    }
-    .countup {
-      text-align: center;
-      margin-top: 1rem;
-      font-weight: bold;
-      color: #b30059;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1 class="typewriter">Feliz Aniversário, Lumi 💖</h1>
 
-    <h2>💍 Contando os dias desde que dissemos sim 💍</h2>
-    <div id="love-counter" style="text-align: center; font-size: 1.4rem; color: #b30059; margin-top: 1rem; font-weight: bold;"></div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Para Lumi 💖</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background: radial-gradient(#fff0f5, #ffe6f0);
+            color: #3d3d3d;
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 2s ease-in;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            color: #b30059;
+        }
+
+        .moment {
+            margin: 1.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid #b30059;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .final-message {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background-color: #ffe6f0;
+            border-radius: 10px;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        a.button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 1.2rem;
+            background-color: #b30059;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        a.button:hover {
+            background-color: #8c0044;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(45deg);
+            animation: float 6s infinite ease-in;
+            opacity: 0.6;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            top: 0;
+            left: -10px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-800px) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .typewriter {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #b30059;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: #b30059;
+            }
+        }
+
+        .countup {
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #b30059;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="typewriter">Feliz Aniversário, Lumi 💖</h1>
+
+        <h2>💍 Contando os dias desde que dissemos sim 💍</h2>
+        <div id="love-counter"
+            style="text-align: center; font-size: 1.4rem; color: #b30059; margin-top: 1rem; font-weight: bold;"></div>
+
+        <script>
+            function updateLoveCounter() {
+                const startDate = new Date("2024-11-27T00:00:00");
+                const now = new Date();
+                const diffTime = now - startDate;
+                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+                const hours = now.getHours().toString().padStart(2, "0");
+                const minutes = now.getMinutes().toString().padStart(2, "0");
+
+                document.getElementById("love-counter").textContent =
+                    `${diffDays} dias desde que começamos essa nova jornada. Te amo cada vez mais 💖 (${hours}:${minutes})`;
+            }
+
+            updateLoveCounter();
+            setInterval(updateLoveCounter, 60000);
+        </script>
+
+        <p>Hoje é o seu dia, e eu quis fazer algo que pudesse guardar pra sempre o quanto você é especial pra mim.</p>
+
+        <h2>🌟 Nossa História</h2>
+        <div class="moment">
+            <strong>Anipolitan:</strong> Nosso primeiro encontro foi lá, em meio a fantasias, cores e alegria. Foi onde
+            tudo começou a florescer.
+        </div>
+        <div class="moment">
+            <strong>Stella Maris:</strong> Depois daquele dia incrível, caminhamos juntos pela areia com o coração leve.
+            Um momento doce e calmo.
+        </div>
+        <div class="moment">
+            <strong>Anos depois...</strong> Passamos muito tempo distantes fisicamente, mas nunca deixamos de nos
+            importar. E então...
+        </div>
+        <div class="moment">
+            <strong>27/11/2024:</strong> O reencontro. Depois de anos sem nos vermos pessoalmente, o destino nos uniu de
+            novo — e dessa vez, pra valer.
+        </div>
+        <div class="moment">
+            <strong>Aldeia Hippie:</strong> Como se o tempo tivesse parado pra gente se conectar com o mundo... e um com
+            o outro.
+        </div>
+
+        <h2>📸 Nossas Memórias</h2>
+        <div class="gallery">
+            <!-- Suba suas fotos no GitHub e coloque os links abaixo -->
+            <!-- <img src="link-da-sua-foto1.jpg" alt="Foto 1" /> -->
+            <!-- <img src="link-da-sua-foto2.jpg" alt="Foto 2" /> -->
+        </div>
+
+        <div class="final-message">
+            <p>Lumi,</p>
+            <p>Desde aquele primeiro encontro no Anipolitan, passando por Stella Maris, até nosso reencontro em 27 de
+                novembro de 2024, você tem sido uma presença constante nos meus pensamentos e sentimentos.</p>
+            <p>Você é meu refúgio, minha alegria e minha melhor amiga. Te ter ao meu lado é um presente que não tem data
+                de validade, e hoje, no seu dia, tudo o que eu quero é te lembrar o quanto você é especial.</p>
+            <p>Obrigado por me escolher. Por ser luz.</p>
+            <p>Feliz aniversário, meu amor. Que esse novo ciclo seja cheio de sonhos, sorrisos e planos que vamos
+                realizar juntos.</p>
+            <p>Com todo o meu amor,</p>
+            <p>Seu amor ❤️</p>
+        </div>
+
+        <div class="countup">Dias juntos desde 27/11/2024: <span id="dias-juntos"></span></div>
+
+        <footer>
+            Feito com amor em 2025 💌
+        </footer>
+    </div>
 
     <script>
-      function updateLoveCounter() {
-        const startDate = new Date("2024-11-27T00:00:00");
-        const now = new Date();
-        const diffTime = now - startDate;
-        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-        const hours = now.getHours().toString().padStart(2, "0");
-        const minutes = now.getMinutes().toString().padStart(2, "0");
+        for (let i = 0; i < 30; i++) {
+            let heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.opacity = Math.random();
+            document.body.appendChild(heart);
+        }
 
-        document.getElementById("love-counter").textContent =
-          `${diffDays} dias desde que começamos essa nova jornada. Te amo cada vez mais 💖 (${hours}:${minutes})`;
-      }
-
-      updateLoveCounter();
-      setInterval(updateLoveCounter, 60000);
+        const inicioRelacao = new Date("2024-11-27");
+        const hoje = new Date();
+        const dias = Math.floor((hoje - inicioRelacao) / (1000 * 60 * 60 * 24));
+        document.getElementById("dias-juntos").textContent = dias;
     </script>
 
-    <p>Hoje é o seu dia, e eu quis fazer algo que pudesse guardar pra sempre o quanto você é especial pra mim.</p>
+    <!-- Wikplayer https://www.wikplayer.com -->
+    <script type="text/javascript" src="https://www.wikplayer.com/code.js"
+        data-config="{'skin':'skins/wikfull/ribbonRed/skin.css','volume':28,'autoplay':true,'shuffle':false,'repeat':1,'showcomment':false,'marqueetexton':true,'placement':'bottom','showplaylist':false,'playlist':[{'title':'A%20Little%20Piece%20Of%20Heaven','url':'https%3A%2F%2Fyoutu.be%2FKVjBCT2Lc94%3Fsi%3DTX6MEpwyjJBcB-JQ'},{'title':'Gunslinger','url':'https%3A%2F%2Fyoutu.be%2F3vDetD8cW_o%3Fsi%3Dtwe9WbckYFdAeR5D'},{'title':'One%20Last%20Breath','url':'https%3A%2F%2Fyoutu.be%2FqnkuBUAwfe0%3Fsi%3DcJQhtJSa4K_ucJAS'},{'title':'Seize%20The%20Day','url':'https%3A%2F%2Fyoutu.be%2FuRJxzGNL9es%3Fsi%3Dc84ZNmV9ix03VjVx'}]}"></script>
+    <!-- Wikplayer code end -->
 
-    <h2>🌟 Nossa História</h2>
-    <div class="moment">
-      <strong>Anipolitan:</strong> Nosso primeiro encontro foi lá, em meio a fantasias, cores e alegria. Foi onde tudo começou a florescer.
-    </div>
-    <div class="moment">
-      <strong>Stella Maris:</strong> Depois daquele dia incrível, caminhamos juntos pela areia com o coração leve. Um momento doce e calmo.
-    </div>
-    <div class="moment">
-      <strong>Anos depois...</strong> Passamos muito tempo distantes fisicamente, mas nunca deixamos de nos importar. E então...
-    </div>
-    <div class="moment">
-      <strong>27/11/2024:</strong> O reencontro. Depois de anos sem nos vermos pessoalmente, o destino nos uniu de novo — e dessa vez, pra valer.
-    </div>
-    <div class="moment">
-      <strong>Aldeia Hippie:</strong> Como se o tempo tivesse parado pra gente se conectar com o mundo... e um com o outro.
-    </div>
-
-    <h2>📸 Nossas Memórias</h2>
-    <div class="gallery">
-      <!-- Suba suas fotos no GitHub e coloque os links abaixo -->
-      <!-- <img src="link-da-sua-foto1.jpg" alt="Foto 1" /> -->
-      <!-- <img src="link-da-sua-foto2.jpg" alt="Foto 2" /> -->
-    </div>
-
-    <div class="final-message">
-      <p>Lumi,</p>
-      <p>Desde aquele primeiro encontro no Anipolitan, passando por Stella Maris, até nosso reencontro em 27 de novembro de 2024, você tem sido uma presença constante nos meus pensamentos e sentimentos.</p>
-      <p>Você é meu refúgio, minha alegria e minha melhor amiga. Te ter ao meu lado é um presente que não tem data de validade, e hoje, no seu dia, tudo o que eu quero é te lembrar o quanto você é especial.</p>
-      <p>Obrigado por me escolher. Por ser luz.</p>
-      <p>Feliz aniversário, meu amor. Que esse novo ciclo seja cheio de sonhos, sorrisos e planos que vamos realizar juntos.</p>
-      <p>Com todo o meu amor,</p>
-      <p>Seu amor ❤️</p>
-    </div>
-
-    <div class="countup">Dias juntos desde 27/11/2024: <span id="dias-juntos"></span></div>
-
-    <footer>
-      Feito com amor em 2025 💌
-    </footer>
-  </div>
-
-  <script>
-    for (let i = 0; i < 30; i++) {
-      let heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-      heart.style.opacity = Math.random();
-      document.body.appendChild(heart);
-    }
-
-    const inicioRelacao = new Date("2024-11-27");
-    const hoje = new Date();
-    const dias = Math.floor((hoje - inicioRelacao) / (1000 * 60 * 60 * 24));
-    document.getElementById("dias-juntos").textContent = dias;
-  </script>
-
-  <audio autoplay loop>
-    <source src="https://files.catbox.moe/28ep34.mp3" type="audio/mpeg">
-    Seu navegador não suporta áudio HTML5.
-  </audio>
 </body>
+
 </html>
