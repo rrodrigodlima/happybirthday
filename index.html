@@ -195,6 +195,22 @@
             z-index: 0;
             box-shadow: 0 0 6px 2px white;
         }
+
+        @keyframes shoot {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(300px, 200px);
+                opacity: 0;
+            }
+        }
+
+        .shooting-star {
+            animation: shoot 1s linear forwards;
+        }
     </style>
 </head>
 
@@ -207,7 +223,7 @@
     <div class="container">
         <h1 class="typewriter">Feliz Aniversário, Lumi 💖</h1>
 
-        <h2>💍 Contando os dias desde que dissemos sim 💍</h2>
+        <h2>💍 Contando os dias para 💍</h2>
         <div id="love-counter"
             style="text-align: center; font-size: 1.4rem; color: #b30059; margin-top: 1rem; font-weight: bold;"></div>
 
@@ -221,23 +237,23 @@
                 const minutes = now.getMinutes().toString().padStart(2, "0");
 
                 document.getElementById("love-counter").textContent =
-                    `${diffDays} dias desde que dissemos sim pra vida juntos. Te amo cada vez mais 💖 (${hours}:${minutes})`;
+                    `${diffDays} dias desde que fizemos a loucura de morar juntos kk. Te amo cada vez mais 💖💖💖 (${hours}:${minutes})`;
             }
 
             updateLoveCounter();
             setInterval(updateLoveCounter, 60000);
         </script>
 
-        <p>Hoje é o seu dia, e eu quis fazer algo que pudesse guardar pra sempre o quanto você é especial pra mim.</p>
+        <p>Hoje é o seu dia, e eu quis fazer algo que pudesse guardar pra sempre e que mostra o quanto você é especial
+            pra mim.</p>
 
         <h2>🌟 Nossa História</h2>
         <div class="moment">
-            <strong>Anipolitan:</strong> Nosso primeiro encontro foi lá, em meio a fantasias, cores e alegria. Foi onde
-            tudo começou a florescer.
+            <strong>Anipolitan:</strong> Nosso primeiro encontro foi lá, em meio a olhares e cosplays. Foi onde
+            tudo começou. 
         </div>
         <div class="moment">
-            <strong>Stella Maris:</strong> Depois daquele dia incrível, caminhamos juntos pela areia com o coração leve.
-            Um momento doce e calmo.
+            <strong>Stella Maris:</strong> Depois daquele dia incrível, nos encontramos pessoalmente em um outro local.
         </div>
         <div class="moment">
             <strong>Anos depois...</strong> Passamos muito tempo distantes fisicamente, mas nunca deixamos de nos
@@ -259,10 +275,10 @@
             <p>Lumi,</p>
             <p>Desde aquele primeiro encontro no Anipolitan, passando por Stella Maris, até nosso reencontro em 27 de
                 novembro de 2024, você tem sido uma presença constante nos meus pensamentos e sentimentos.</p>
-            <p>Você é meu refúgio, minha alegria e minha melhor amiga. Te ter ao meu lado é um presente que não tem data
+            <p>Você é minha alegria e minha melhor amiga. Te ter ao meu lado é um presente que não tem data
                 de validade, e hoje, no seu dia, tudo o que eu quero é te lembrar o quanto você é especial.</p>
             <p>Obrigado por me escolher. Por ser luz.</p>
-            <p>Feliz aniversário, meu amor. Que esse novo ciclo seja cheio de sonhos, sorrisos e planos que vamos
+            <p>Feliz aniversárioooo, meu amor. Que esse novo ciclo seja cheio de sonhos, sorrisos e planos que vamos
                 realizar juntos.</p>
             <p>Com todo o meu amor,</p>
             <p>Seu amor ❤️</p>
@@ -271,7 +287,7 @@
         <div class="countup">Dias juntos desde 27/11/2024: <span id="dias-juntos"></span></div>
 
         <footer>
-            Feito com amor em 2025 💌
+            Feito com amor 💌
         </footer>
     </div>
 
@@ -333,7 +349,7 @@
             star.style.top = startY + 'px';
             star.style.left = startX + 'px';
             star.style.opacity = 1;
-            star.style.transition = 'all 1s linear';
+            // star.style.transition = 'all 1s linear';
 
             requestAnimationFrame(() => {
                 star.style.top = startY + 200 + 'px';
